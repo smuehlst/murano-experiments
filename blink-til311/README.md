@@ -5,9 +5,8 @@ two-digit hex display that counts upwards from 0x00 to 0xFF.
 
 Pin assignment
 
-Murano  | TIL-311
-board   | board
-------- |---------
+Murano board|TIL-311 board
+--------|---------
 P11     | LSB
 P12     | ...
 P13     | ...
@@ -16,5 +15,3 @@ P18     | ...
 P19     | ...
 P20     | ...
 P22     | MSB
-
-This project was created with Xilinx ISE 14.7.
