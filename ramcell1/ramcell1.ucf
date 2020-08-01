@@ -2,7 +2,7 @@
 INST "clock" LOC=P6 | BUFG=CLK;
 # INST "rw" LOC=P4;
 
-# INST "redled" LOC=P2;
+INST "redled" LOC=P2;
 INST "greenled" LOC=P1;
 
 INST "display[0]" LOC=P11;

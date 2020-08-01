@@ -43,9 +43,10 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity ramcell1 is
-generic(	width:	integer:=4;
-		depth:	integer:=4;
-		addr:	integer:=2);
+generic(
+		width: integer := 4;
+		depth: integer := 4;
+		addr:	integer := 2);
 port(
 	clock:	in std_logic;	
 	-- rw:		in std_logic; -- read high write low
@@ -53,7 +54,7 @@ port(
 	data: 	in std_logic_vector(width-1 downto 0); -- later inout
 	display: out std_logic_vector(width-1 downto 0);
 	display2: out std_logic_vector(width-1 downto 0);
-	-- redled: out std_logic;
+	redled: out std_logic;
 	greenled: out std_logic
 );
 end ramcell1;
@@ -99,8 +100,9 @@ begin
 	
 	display <= cell;
 	display2 <= counter;
-	redled <= clock;
+	-- redled <= clock;
 	-- greenled <= cell(0) and cell(1) and cell(2) and cell(3);
-	greenled <= '1' when cell /= "1111" else '0';
+	greenled <= '1' when cell = "1010" else '0';
+	redled <= '1' when cell = "0101" else '0';
 
 end behav;
