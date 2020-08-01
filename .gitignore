@@ -29,6 +29,9 @@
 *.xml
 *.xrpt
 *.xst
+*.*~
+*.xise
+*.lfp
 _ngo
 _xmsgs
 iseconfig

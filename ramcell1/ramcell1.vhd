@@ -49,9 +49,9 @@ generic(
 		addr:	integer := 2);
 port(
 	clock:	in std_logic;	
-	-- rw:		in std_logic; -- read high write low
+	rw:		in std_logic; -- read high write low
 	-- addr:	in std_logic_vector(addr-1 downto 0);
-	data: 	in std_logic_vector(width-1 downto 0); -- later inout
+	data: 	inout std_logic_vector(width-1 downto 0); -- later inout
 	display: out std_logic_vector(width-1 downto 0);
 	display2: out std_logic_vector(width-1 downto 0);
 	redled: out std_logic;
@@ -75,12 +75,20 @@ signal counter: std_logic_vector(width-1 downto 0);
 
 begin		   
     -- Read Functional Section
-	process(clock)
+	process(clock, rw)
 	begin
-		if rising_edge(clock) then -- creates the flipflops
-			cell <= data;
-			-- outp <= b;
+--		if falling_edge(clock) then -- creates the flipflops
+--			if rw = '0' then
+--				cell <= data;
+--			end if;
+--		end if;
+		if rising_edge(clock) then
 			counter <= std_logic_vector(unsigned(counter) + 1);
+		   if cell = "0101" then
+				cell <= "1010";
+			else
+				cell <= "0101";
+			end if;
 		end if;
 	end process;
 	 
@@ -100,9 +108,9 @@ begin
 	
 	display <= cell;
 	display2 <= counter;
-	-- redled <= clock;
-	-- greenled <= cell(0) and cell(1) and cell(2) and cell(3);
 	greenled <= '1' when cell = "1010" else '0';
 	redled <= '1' when cell = "0101" else '0';
+	
+	data <= cell when rw='1' else "ZZZZ";
 
 end behav;

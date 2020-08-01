@@ -1,6 +1,6 @@
 # Do not use P5 as external clock, it is used by the Murano on-board clock
 INST "clock" LOC=P6 | BUFG=CLK;
-# INST "rw" LOC=P4;
+INST "rw" LOC=P4;
 
 INST "redled" LOC=P2;
 INST "greenled" LOC=P1;
