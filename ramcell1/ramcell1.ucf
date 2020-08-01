@@ -1,0 +1,21 @@
+# Do not use P5 as external clock, it is used by the Murano on-board clock
+INST "clock" LOC=P6 | BUFG=CLK;
+# INST "rw" LOC=P4;
+
+# INST "redled" LOC=P2;
+INST "greenled" LOC=P1;
+
+INST "display[0]" LOC=P11;
+INST "display[1]" LOC=P12;
+INST "display[2]" LOC=P13;
+INST "display[3]" LOC=P14;
+
+INST "display2[0]" LOC=P18;
+INST "display2[1]" LOC=P19;
+INST "display2[2]" LOC=P20;
+INST "display2[3]" LOC=P22;
+
+INST "data[0]" LOC=P25;
+INST "data[1]" LOC=P26;
+INST "data[2]" LOC=P27;
+INST "data[3]" LOC=P28;
