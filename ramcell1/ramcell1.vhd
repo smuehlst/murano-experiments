@@ -48,14 +48,14 @@ generic(
 		depth: integer := 4;
 		addr:	integer := 2);
 port(
-	clock:	in std_logic;	
-	rw:		in std_logic; -- read high write low
-	-- addr:	in std_logic_vector(addr-1 downto 0);
-	data: 	inout std_logic_vector(width-1 downto 0); -- later inout
-	display: out std_logic_vector(width-1 downto 0);
-	display2: out std_logic_vector(width-1 downto 0);
-	redled: out std_logic;
-	greenled: out std_logic
+		clock:	in std_logic;	
+		rw:		in std_logic; -- read high write low
+		-- addr:	in std_logic_vector(addr-1 downto 0);
+		data: 	inout std_logic_vector(width-1 downto 0);
+		display: out std_logic_vector(width-1 downto 0);
+		display2: out std_logic_vector(width-1 downto 0);
+		redled: out std_logic;
+		greenled: out std_logic
 );
 end ramcell1;
 
@@ -70,8 +70,8 @@ architecture behav of ramcell1 is
 	
 -- signal tmp_ram: ram_type;
 
-signal cell: std_logic_vector(width-1 downto 0);
-signal counter: std_logic_vector(width-1 downto 0);
+signal cell: std_logic_vector(width-1 downto 0) := "0000";
+signal counter: std_logic_vector(width-1 downto 0) := "0000";
 
 begin		   
     -- Read Functional Section
@@ -82,6 +82,7 @@ begin
 --				cell <= data;
 --			end if;
 --		end if;
+		
 		if rising_edge(clock) then
 			counter <= std_logic_vector(unsigned(counter) + 1);
 		   if cell = "0101" then

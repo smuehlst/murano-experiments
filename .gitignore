@@ -3,6 +3,7 @@
 *.cmd_log
 *.csv
 *.err
+*.exe
 *.gise
 *.gyd
 *.html
@@ -26,6 +27,7 @@
 *.tspec
 *.vf
 *.vm6
+*.wdb
 *.xml
 *.xrpt
 *.xst
@@ -38,3 +40,9 @@ iseconfig
 sch2HdlBatchFile
 xst
 xlnx_auto_0_xdb
+isim
+isim.*
+fuse.log
+fuse.xmsgs
+fuseRelaunch.cmd
+
