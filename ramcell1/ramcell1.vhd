@@ -77,20 +77,21 @@ begin
     -- Read Functional Section
 	process(clock, rw)
 	begin
---		if falling_edge(clock) then -- creates the flipflops
---			if rw = '0' then
---				cell <= data;
---			end if;
---		end if;
-		
-		if rising_edge(clock) then
+		if falling_edge(clock) then -- creates the flipflops
 			counter <= std_logic_vector(unsigned(counter) + 1);
-		   if cell = "0101" then
-				cell <= "1010";
-			else
-				cell <= "0101";
+			if rw = '0' then
+				cell <= data;
 			end if;
 		end if;
+--
+--		if rising_edge(clock) then
+--			counter <= std_logic_vector(unsigned(counter) + 1);
+--		   if cell = "0101" then
+--				cell <= "1010";
+--			else
+--				cell <= "0101";
+--			end if;
+--		end if;
 	end process;
 	 
 	--	 process (rw, data)          -- behavioral representation 

@@ -67,7 +67,8 @@ ARCHITECTURE behavior OF ramcell1_tb IS
 
    -- Clock period definitions
    constant clock_period : time := 10 ns;
- 
+	constant setup_offset : time := 3 ns;
+
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
@@ -96,12 +97,43 @@ BEGIN
    begin
 		rw <= '1';
 		
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
+		-- cycle 1 write
+      wait for clock_period;
+		
+		wait for clock_period / 4;
+		
+		rw <= '0';
+		
+		wait for clock_period / 2;
+		
+		data <= "1010";
 
-      wait for clock_period*10;
+		wait for clock_period / 4;
 
-      -- insert stimulus here 
+		-- clock cycle 2 read
+      wait for clock_period / 4;
+		
+		rw <= '1';
+
+      wait for (clock_period / 4) * 3 ;
+		
+		-- clock cycle 3 write
+		wait for clock_period / 4;
+		
+		rw <= '0';
+		
+		wait for clock_period / 2;
+		
+		data <= "0101";
+		
+		wait for clock_period / 4;
+
+		-- clock cycle 4 read
+      wait for clock_period / 4;
+		
+		rw <= '1';
+
+      wait for (clock_period / 4) * 3 ;
 
       wait;
    end process;
