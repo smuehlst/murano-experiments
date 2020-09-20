@@ -52,7 +52,7 @@ port(
 		rw:		in std_logic; -- read high write low
 		addr:		in std_logic_vector(addr_bus_width-1 downto 0);
 		-- data: 	inout std_logic_vector(data_bus_width-1 downto 0);
-		data: 	inout std_logic_vector(data_bus_width-1 downto 0);
+		data: 	in std_logic_vector(data_bus_width-1 downto 0);
 		-- display: out std_logic_vector(data_bus_width-1 downto 0);
 		-- display2: out std_logic_vector(data_bus_width-1 downto 0);
 		redled: out std_logic;
