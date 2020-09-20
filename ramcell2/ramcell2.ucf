@@ -1,0 +1,44 @@
+# Do not use P5 as external clock, it is used by the Murano on-board clock
+INST "clock" LOC=P6 | BUFG=CLK;
+INST "rw" LOC=P38;
+
+INST "redled" LOC=P2;
+INST "greenled" LOC=P1;
+
+#INST "display[0]" LOC=P11;
+#INST "display[1]" LOC=P12;
+#INST "display[2]" LOC=P13;
+#INST "display[3]" LOC=P14;
+#
+#INST "display2[0]" LOC=P18;
+#INST "display2[1]" LOC=P19;
+#INST "display2[2]" LOC=P20;
+#INST "display2[3]" LOC=P22;
+
+# data bus
+INST "data[0]" LOC=P40;
+INST "data[1]" LOC=P42;
+INST "data[2]" LOC=P43;
+INST "data[3]" LOC=P44;
+INST "data[4]" LOC=P34;
+INST "data[5]" LOC=P35;
+INST "data[6]" LOC=P36;
+INST "data[7]" LOC=P37;
+
+# address bus
+INST "addr[0]" LOC=P19;
+INST "addr[1]" LOC=P20;
+INST "addr[2]" LOC=P22;
+INST "addr[3]" LOC=P18;
+INST "addr[4]" LOC=P14;
+INST "addr[5]" LOC=P9;
+INST "addr[6]" LOC=P11;
+INST "addr[7]" LOC=P12;
+INST "addr[8]" LOC=P13;
+INST "addr[9]" LOC=P24;
+INST "addr[10]" LOC=P25;
+INST "addr[11]" LOC=P26;
+INST "addr[12]" LOC=P27;
+INST "addr[13]" LOC=P28;
+INST "addr[14]" LOC=P29;
+INST "addr[15]" LOC=P33;
